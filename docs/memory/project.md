@@ -39,8 +39,18 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
 - **Name**: "TOH" was consciously borrowed from OpenWrt's Table of Hardware but collides with
   it (awkward once we mirror their data); "HWDB" collides with systemd/udev hwdb. Scope has
   outgrown "table" anyway (catalog + archive + firmware ledger). Rename is cheap until
-  publication. Candidate direction: ledger/history-flavored names fit the event-sourced,
-  append-only identity.
+  publication.
+  Candidates collision-checked against the live web 2026-07-02:
+  - **spectrail** — near-clear (unrelated Chrome extension/indie game only; npm/NuGet/PyPI/
+    crates all free). Meaning: spec + audit trail.
+  - **hwpedigree** — fully clear everywhere; slightly clunky to say.
+  - **hardfacts** — ownable; GitHub handle squatted by empty account; reads a bit generic.
+  - **silkscreen** — no hard conflict but generic word (font + PCB layer dominate search).
+  - **hwledger** — rejected: search engines autocorrect to hledger; reads as LedgerHQ
+    hardware wallet.
+  - **specledger** — rejected: exact-name active product (specledger.io + GitHub org).
+  - **"Tome of Hardware"** — rejected: near-homophone of Tom's Hardware (same subject area,
+    trademark-confusion exposure) and the TOH backronym resurrects the OpenWrt collision.
 
 ## Hard-won requirements (Ivan's own experience)
 
