@@ -35,8 +35,7 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
 - **2026-07-02** Repo created (git init, main branch) with docs, AGENTS.md/CLAUDE.md, memory.
 - **2026-07-02** **Name decided: HWology** ("hardware-ology"). hwology.com registered;
   .net/.dev consciously skipped (Ivan already pays for too many domains; the .com is what
-  matters). Directory may stay `/home/ivan/TOH` for now — safe because canonical memory is
-  in-repo, not path-dependent.
+  matters). Directory renamed `/home/ivan/TOH` → `/home/ivan/hwology` same day.
 - **2026-07-02** Project ethos, in Ivan's words: personal use first, public sharing second
   tier, a give-back from 30+ years of internet usage. Copying/forking is welcome — no brand
   defensiveness. Keep decisions biased toward simple and personal-scale.
