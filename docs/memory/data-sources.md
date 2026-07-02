@@ -26,8 +26,7 @@ before building on them if this file has aged. Full evidence:
 - Dead ends: PCPartPicker (no API, ToS), TechPowerUp (prohibits scraping, no mobo DB),
   Newegg (seller-only API), Geizhals (Cloudflare + gated partner API — but its facet taxonomy
   is the schema gold standard to mirror).
-- ASUS ToS §1.8.4 prohibits scraping — private polite use is de-facto tolerated; publish
-  facts, not scraped pages.
+- ASUS ToS §1.8.4 prohibits scraping; publish extracted facts only, never raw pages.
 
 ## Networking gear
 
@@ -39,7 +38,7 @@ before building on them if this file has aged. Full evidence:
   API (typed chipset/flash/RAM/FCC facts), CC BY-SA 3.0. Original WikiDevi 2019 dumps on
   archive.org.
 - **armijnhemel/devicecode-data** (GitHub): pre-parsed JSON aggregate of TechInfoDepot +
-  WikiDevi + OpenWrt + FCC with per-source license tracking; ~14 months stale; closest prior
+  WikiDevi + OpenWrt + FCC with per-source license tracking; last updated ~2025-05; closest prior
   art to this project — study its schema unification.
 - **fcc.report**: plain-curl scrapeable per-FCC-ID pages (internal photos, manual PDFs).
   fccid.io bot-blocks; apps.fcc.gov API Akamai-blocks datacenter IPs.

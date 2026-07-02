@@ -136,11 +136,17 @@ spec value → evidence chain.
 
 | Tier | License | Examples |
 |---|---|---|
-| Own published catalog | CC BY-SA | normalized facts, event-derived history |
+| Own published catalog | CC BY-SA 4.0 | normalized facts, event-derived history |
 | Share-alike ingested | CC BY-SA 4.0/3.0 | toh.json, wi-cat (3.0→4.0 is one-way OK) |
 | Attribution ingested | ODC-By | BuildCores |
 | Facts-only extraction | n/a (facts uncopyrightable) | vendor spec pages, MikroTik/Ubiquiti |
 | Private archive | none — do not redistribute | raw scraped HTML, manual PDFs, firmware binaries |
+
+Repo prose (docs, research) is CC BY-SA 4.0 as well (see LICENSE); future source code will
+carry its own license, decided when code lands. The published dataset artifact must ship a
+NOTICE/ATTRIBUTION file naming each ingested source and its license — at minimum BuildCores
+OpenDB (ODC-By 1.0) from the first published record of milestone 2, plus OpenWrt ToH
+(CC BY-SA 4.0) and wikidevi.wi-cat.ru (CC BY-SA 3.0, adapted under 4.0) once router data lands.
 
 ## Milestones (proposed)
 

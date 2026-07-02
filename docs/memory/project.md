@@ -16,7 +16,8 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
 - **2026-07-02** Stack: F# / .NET 11 previews (Ivan runs newest happily; GA Nov 2026). GUI
   will be his own fork of Fun.Blazor. Storage: git-versioned text canon + SQLite read model +
   in-memory app model. Event-sourced ingestion (Ivan's framing: SQLite is a "view"/read model).
-- **2026-07-02** Public data will be **CC BY-SA** — dissolves share-alike compatibility with
+- **2026-07-02** Public data will be **CC BY-SA 4.0** (version pinned — 3.0→4.0 ingest is
+  one-way, so the catalog must be 4.0) — dissolves share-alike compatibility with
   OpenWrt ToH / WikiDevi sources.
 - **2026-07-02** File formats: JSON for machine-written records (.NET 11 built-in STJ F# DU
   format), TOML for hand-authored files (Ivan dislikes JSON bracket-editing). Both validated
@@ -39,10 +40,20 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
 - **2026-07-02** Project ethos, in Ivan's words: personal use first, public sharing second
   tier, a give-back from 30+ years of internet usage. Copying/forking is welcome — no brand
   defensiveness. Keep decisions biased toward simple and personal-scale.
+- **2026-07-02** Repo published publicly: **github.com/HWology/hwology** (org HWology;
+  org description + hwology.com URL set). LICENSE added: CC BY-SA 4.0 covering the repo's
+  prose and the future published data; future code will carry its own license (open question).
+  **This repo — including these memory files — is now public**: keep secrets, personal data,
+  and sensitive operational notes out of it.
+- **2026-07-02** Pre-publication sweep (multi-agent) before first push: reworded bot-wall/ToS
+  passages in research docs to neutral, fact-only phrasing; removed a host IP; converted
+  remaining relative dates to absolute. Dataset NOTICE/ATTRIBUTION obligation pre-staged in
+  architecture.md (triggers at milestone 2's first published record).
 
 ## Open / undecided
 
-*(none currently — naming resolved, see decisions log)*
+- License for the future source code (CC BY-SA is unsuitable for software — Creative Commons
+  itself recommends against it); decide by milestone 1, declare in its own LICENSE file.
 
 ## Naming history (resolved 2026-07-02 → HWology)
 

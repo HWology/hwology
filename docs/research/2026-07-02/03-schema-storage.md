@@ -88,7 +88,7 @@ Sources:
 
 *Confidence: `uncertain`*
 
-Gigabyte-style revisions (rev 1.0 vs 1.1) can change LAN controllers, VRMs, even M.2 layouts, and each revision has its own BIOS branch — so revision must be an entity, not a text field. Recommended shape: product (the family, e.g. 'B550I AORUS PRO AX') → board_revision (rev label, dates, its own spec rows/overrides) with specs resolved as revision-level value if present, else product-level default; BIOS releases (version, date, changelog, AGESA/microcode, download URL) FK to board_revision, since firmware history — Ivan's differentiator — is inherently per-revision. Icecat's data model similarly carries 'product variants' as distinct linked records. This finding is design synthesis grounded in how vendor sites structure rev-specific spec/BIOS pages; not verified against a reference implementation this session.
+Gigabyte-style revisions (rev 1.0 vs 1.1) can change LAN controllers, VRMs, even M.2 layouts, and each revision has its own BIOS branch — so revision must be an entity, not a text field. Recommended shape: product (the family, e.g. 'B550I AORUS PRO AX') → board_revision (rev label, dates, its own spec rows/overrides) with specs resolved as revision-level value if present, else product-level default; BIOS releases (version, date, changelog, AGESA/microcode, download URL) FK to board_revision, since firmware history — Ivan's differentiator — is inherently per-revision. Icecat's data model similarly carries 'product variants' as distinct linked records. This finding is design synthesis grounded in how vendor sites structure rev-specific spec/BIOS pages; not verified against a reference implementation (as of 2026-07-02).
 
 Sources:
 

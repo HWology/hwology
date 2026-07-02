@@ -10,6 +10,10 @@ routers, switches, and similar gear.
 
 Owner: Ivan. Status: research/design phase — no code yet.
 
+**This repo is public** (github.com/HWology/hwology, since 2026-07-02) — everything here,
+including the memory files, is published. No secrets, personal data, or sensitive
+operational notes anywhere in the repo.
+
 ## Session bootstrap (do this first)
 
 1. Read `docs/memory/project.md` — living project memory: decisions log, open questions,
@@ -33,9 +37,10 @@ Owner: Ivan. Status: research/design phase — no code yet.
 - **Provenance**: every fact carries source URL + retrieved-at (ISO-8601 UTC) + sha256 +
   archive ref. Trust rank: `measured > correction > manual-PDF > vendor-page > aggregator`.
   Never delete vendor-pulled data; flag it `pulled`.
-- **Licensing tiers**: published data is CC BY-SA. Raw scraped HTML, manual PDFs, and
-  firmware binaries are private (Garage S3, sha256-keyed) and referenced publicly by
-  URL + hash + Wayback link only. Do not commit copyrighted material to this repo.
+- **Licensing tiers**: published data is CC BY-SA 4.0 (version pinned; repo prose carries the
+  same license — see LICENSE; future code gets its own license when it lands). Raw scraped
+  HTML, manual PDFs, and firmware binaries are private (Garage S3, sha256-keyed) and referenced
+  publicly by URL + hash + Wayback link only. Do not commit copyrighted material to this repo.
 - **Scraping**: be polite (low rate, identify honestly where sensible). Several vendors
   bot-block datacenter IPs — see data-sources memory before pointing a scraper anywhere.
 - Convert relative dates to absolute in all docs and memory files.

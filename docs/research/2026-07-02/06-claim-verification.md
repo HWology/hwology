@@ -6,7 +6,7 @@
 
 **Status: CONFIRMED**
 
-Verified-live via GitHub API and raw files. Repo pushed_at 2026-07-01T18:07Z (yesterday), 320 stars, 150 forks, 117 open issues. README 'License' section states Open Data Commons Attribution (ODC-By) v1.0 verbatim (license file is LICENSE.txt, which is why GitHub API reports 'Other'). git-trees API: open-db/ has exactly 30 category dirs and Motherboard/ contains exactly 3,693 files, untruncated. README 'Help Wanted / Bounties' lists 'collect motherboard BIOS versioning data along with CPU support lists' and product-page URLs/PDFs as unmet goals, and 'Limitations' confirms no price/retailer data. Seeding recommendation stands.
+Verified-live via GitHub API and raw files. Repo pushed_at 2026-07-01T18:07Z, 320 stars, 150 forks, 117 open issues. README 'License' section states Open Data Commons Attribution (ODC-By) v1.0 verbatim (license file is LICENSE.txt, which is why GitHub API reports 'Other'). git-trees API: open-db/ has exactly 30 category dirs and Motherboard/ contains exactly 3,693 files, untruncated. README 'Help Wanted / Bounties' lists 'collect motherboard BIOS versioning data along with CPU support lists' and product-page URLs/PDFs as unmet goals, and 'Limitations' confirms no price/retailer data. Seeding recommendation stands.
 
 ## BuildCores Motherboard.schema.json has structured pcie_slots (gen enum 1.1–5.0, lanes, quantity), m2_slots (size, key enum M/E/B/B+M, interface), onboard_ethernet (speed enum incl. 2.5 Gb/s + controller), but onboard video out exists only as free-text strings in back_panel_ports
 
@@ -18,13 +18,13 @@ Verified-live from raw schema (16,944 bytes). pcie_slots items: gen enum ['5.0',
 
 **Status: CONFIRMED**
 
-Verified-live this session: curl to https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=us&model=ROG%20STRIX%20B650E-I%20GAMING%20WIFI from this datacenter host returned HTTP 200, 35 KB JSON, 32 BIOS releases; newest Version 3854, ReleaseDate 2026/04/23, Description begins 'Update AGESA ComboAM5 PI 1.3.0.1', DownloadUrl has Global+China keys. The BIOS-history pipeline's most reliable vendor source is real and currently open.
+Verified live 2026-07-02: curl to https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=us&model=ROG%20STRIX%20B650E-I%20GAMING%20WIFI from this datacenter host returned HTTP 200, 35 KB JSON, 32 BIOS releases; newest Version 3854, ReleaseDate 2026/04/23, Description begins 'Update AGESA ComboAM5 PI 1.3.0.1', DownloadUrl has Global+China keys. The BIOS-history pipeline's most reliable vendor source is real and currently open.
 
 ## ASRock is the cleanest scrape target: static HTML specs and per-board BIOS pages plus a sitewide same-day BIOS feed, served 200 to datacenter curl with no bot-blocking (robots.txt disallows only /asrockrack/)
 
 **Status: CORRECTED**
 
-Materially changed since the original check. TODAY (2026-07-02) every ASRock content page tested — /support/index.asp?cat=BIOS, /mb/amd/B650M%20Pro%20RS/bios.html, /mb/index.asp — returned an ~840-byte Imperva Incapsula challenge iframe ('Request unsuccessful. Incapsula incident ID...') to curl-with-Chrome-UA from this datacenter IP (15.204.254.32); Anthropic's fetcher also got empty content for the X870E Taichi White spec page. robots.txt IS as claimed (only /asrockrack/ disallowed). So the data structures may still exist, but ASRock must be moved into the same bucket as MSI/Gigabyte for access planning: residential IP or headless browser, not 'clean datacenter curl'. This weakens the 'daily poll of ASRock sitewide feed is cheap and reliable' part of the architecture; ASUS becomes the only vendor confirmed scrape-friendly from cloud infra.
+Materially changed since the original check. On 2026-07-02 every ASRock content page tested — /support/index.asp?cat=BIOS, /mb/amd/B650M%20Pro%20RS/bios.html, /mb/index.asp — returned an ~840-byte Imperva Incapsula challenge iframe ('Request unsuccessful. Incapsula incident ID...') to curl-with-Chrome-UA from a datacenter IP; Anthropic's fetcher also got empty content for the X870E Taichi White spec page. robots.txt IS as claimed (only /asrockrack/ disallowed). So the data structures may still exist, but ASRock must be moved into the same bucket as MSI/Gigabyte for access planning: residential IP or headless browser, not 'clean datacenter curl'. This weakens the 'daily poll of ASRock sitewide feed is cheap and reliable' part of the architecture; ASUS becomes the only vendor confirmed scrape-friendly from cloud infra.
 
 ## Open Icecat sponsoring brands include ASUS (vendor 120) and Gigabyte (480), but NOT MSI, ASRock, or Supermicro (those require paid Full Icecat)
 

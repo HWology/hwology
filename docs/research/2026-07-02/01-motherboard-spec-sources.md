@@ -39,7 +39,7 @@ Sources:
 
 *Confidence: `verified-live`*
 
-All three returned Akamai 'Access Denied' (errors.edgesuite.net reference) for every path tested — including robots.txt — from this environment, even with a full Chrome user-agent. This is IP-reputation blocking, not UA sniffing; community scrapers report the sites work from residential IPs. MSI's site is an SPA backed by JSON endpoints under www.msi.com/api/v1/product/ (getProductList, getProductDetail — the 403 came from Akamai, not a 404, confirming the path exists). Gigabyte spec pages (/Motherboard/<model>/sp) are server-rendered spec tables per community scrapers; Supermicro uses classic HTML spec tables. Practical takeaway: for a self-hosted single-dev tool, crawl these three from a home connection at low rate; from cloud infra you'd need residential proxies.
+All three returned Akamai 'Access Denied' (errors.edgesuite.net reference) for every path tested — including robots.txt — from this environment, even with a full Chrome user-agent. This is IP-reputation blocking, not UA sniffing; community scrapers report the sites work from residential IPs. MSI's site is an SPA backed by JSON endpoints under www.msi.com/api/v1/product/ (getProductList, getProductDetail — the 403 came from Akamai, not a 404, confirming the path exists). Gigabyte spec pages (/Motherboard/<model>/sp) are server-rendered spec tables per community scrapers; Supermicro uses classic HTML spec tables. Practical takeaway: for a self-hosted single-dev tool, crawl these three from a home connection at low rate; cloud-hosted crawling is not viable for these vendors.
 
 Sources:
 
