@@ -47,9 +47,19 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   and sensitive operational notes out of it.
 - **2026-07-02** Porkbun API access verified live from the dev machine (key scoped per
   Porkbun account settings; credentials kept outside this public repo). hwology.com has the
-  per-domain API-Access toggle enabled and is manageable via API; its zone is still
-  registrar defaults (parked-page ALIAS + wildcard, Porkbun mail-forwarding MX/SPF) — no
-  Fastmail or site records yet.
+  per-domain API-Access toggle enabled and is manageable via API.
+- **2026-07-02** hwology.com zone cut over via Porkbun API (authority stays on Porkbun NS;
+  Fastmail's hosted-DNS defaults disabled on their side). Design: apex + wildcard A/AAAA →
+  prod VPS (15.204.119.184 / 2604:2dc0:202:300::268b); mail on Fastmail via apex+wildcard
+  MX (us1/us2-smtp.messagingengine.com — verified same IPs as legacy in1/in2 names), SPF
+  `include:spf.messagingengine.com ?all`, 4 DKIM CNAMEs (fm1-3, mesmtp → *.dkim.fmhosted.com),
+  DMARC p=none (no rua yet — add before tightening), full Fastmail SRV autodiscovery set incl.
+  `0 0 .` negatives for plaintext services. CAA locks issuance to letsencrypt.org (issue +
+  issuewild) — **any ACME client on the VPS must use Let's Encrypt** (acme.sh defaults to
+  ZeroSSL — override or amend CAA). No mail.hwology.com records: wildcard sends it to the VPS
+  (Fastmail's webmail-redirect A record deliberately skipped). TTLs 600 during setup; raise
+  to 3600 once stable. All records verified resolving on Porkbun NS same day (CAA lagged
+  sync to the Cloudflare backend — recheck if issuance ever fails).
 - **2026-07-02** Pre-publication sweep (multi-agent) before first push: reworded bot-wall/ToS
   passages in research docs to neutral, fact-only phrasing; removed a host IP; converted
   remaining relative dates to absolute. Dataset NOTICE/ATTRIBUTION obligation pre-staged in
