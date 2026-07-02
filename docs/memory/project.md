@@ -59,7 +59,12 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   ZeroSSL — override or amend CAA). No mail.hwology.com records: wildcard sends it to the VPS
   (Fastmail's webmail-redirect A record deliberately skipped). TTLs 600 during setup; raise
   to 3600 once stable. All records verified resolving on Porkbun NS same day (CAA lagged
-  sync to the Cloudflare backend — recheck if issuance ever fails).
+  sync to the Cloudflare backend by ~2 min — recheck if issuance ever fails).
+- **2026-07-02** mail.hwology.com pointed at Fastmail after all (reversing the earlier skip):
+  A → 103.168.172.65 (their webmail-redirect host) + MX pair. The explicit A also correctly
+  suppresses wildcard AAAA synthesis at that name (empty AAAA, matching Fastmail's default).
+  Fastmail's hosted-domain certs are Let's Encrypt (their help: "Secure website support:
+  Let's Encrypt") — compatible with the letsencrypt.org-only CAA.
 - **2026-07-02** Pre-publication sweep (multi-agent) before first push: reworded bot-wall/ToS
   passages in research docs to neutral, fact-only phrasing; removed a host IP; converted
   remaining relative dates to absolute. Dataset NOTICE/ATTRIBUTION obligation pre-staged in
