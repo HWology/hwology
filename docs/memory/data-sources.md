@@ -70,6 +70,22 @@ before building on them if this file has aged. Full evidence:
   live-tested with F# records: needs `[<CLIMutable>]`, arrays not F# lists, ~10-line
   converter per option type; DUs manual. taplo orphaned → **tombi** for schema validation.
   Prior art for TOML datasets: RustSec advisory-db, mozilla cargo-vet.
+- **Porkbun API** (registrar + DNS host for hwology.com): v3.7 verified live 2026-07-02.
+  Full DNS CRUD (by record id and by name+type, dryRun on writes), NS/glue/DNSSEC/URL-forward
+  management, domain register/renew/transfer via account credit (cost-in-pennies confirm,
+  dryRun, spend controls), HMAC-signed webhooks, Let's Encrypt bundle retrieval. Base
+  `https://api.porkbun.com/api/json/v3` (hostname moved off porkbun.com in 2025 — pre-2025
+  clients broke); OpenAPI 3.0 spec at `porkbun.com/api/json/v3/spec`, markdown reference at
+  `porkbun.com/llms-full.txt` — **docs bot-block datacenter IPs** (one agent got 403s).
+  Gotchas: per-domain "API Access" toggle, off by default, dashboard-only; account-wide
+  key+secret (per-key IP/domain allowlists exist, no read-only keys); min TTL 600 s;
+  ~200 records/zone; no zone-file export or bulk endpoints; documented 429 rate limits but
+  serialize + back off anyway. DNS resolves on Cloudflare anycast (Porkbun-branded NS);
+  set CAA + watch CT logs — two independent reports (2024, 2026) of Cloudflare-side cert
+  issuance for Porkbun-hosted zones. No real .NET client on NuGet — plain JSON-over-HTTPS,
+  call from F# directly or codegen from the OpenAPI spec. ACME/IaC tooling mature:
+  acme.sh/lego/Caddy/certbot, Terraform `marcfrederick/porkbun` (active; cullenmcdermott
+  archived), DNSControl, octoDNS, ddns-updater, official MCP server (`@porkbunllc/mcp-server`).
 - **Archiving**: browsertrix-crawler v1.13.x (WARC/WACZ, browser profiles beat bot walls);
   single-file-cli v2 attaches to a running browser via CDP; Wayback SPN2
   (`POST web.archive.org/save`, `Authorization: LOW key:secret`, `if_not_archived_within`)
