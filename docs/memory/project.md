@@ -45,6 +45,11 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   prose and the future published data; future code will carry its own license (open question).
   **This repo — including these memory files — is now public**: keep secrets, personal data,
   and sensitive operational notes out of it.
+- **2026-07-02** Porkbun API access verified live from the dev machine (key scoped per
+  Porkbun account settings; credentials kept outside this public repo). hwology.com has the
+  per-domain API-Access toggle enabled and is manageable via API; its zone is still
+  registrar defaults (parked-page ALIAS + wildcard, Porkbun mail-forwarding MX/SPF) — no
+  Fastmail or site records yet.
 - **2026-07-02** Pre-publication sweep (multi-agent) before first push: reworded bot-wall/ToS
   passages in research docs to neutral, fact-only phrasing; removed a host IP; converted
   remaining relative dates to absolute. Dataset NOTICE/ATTRIBUTION obligation pre-staged in
