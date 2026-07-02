@@ -1,4 +1,6 @@
-# TOH (working title — rename pending)
+# HWology
+
+*"hardware-ology" — the study of hardware.* — [hwology.com](https://hwology.com)
 
 A public, spec-level hardware catalog with faceted filtering retail sites can't do
 ("motherboard, mATX/ITX, 3+ PCIe slots, onboard 2.5GbE, onboard video"), plus what retailers
@@ -10,3 +12,6 @@ the evidence behind it is in [docs/research/](docs/research/2026-07-02/README.md
 
 Published data will be CC BY-SA. Copyrighted source material (manuals, firmware) is never
 committed here — it lives in a private archive and is referenced by URL + sha256 + Wayback link.
+
+Personal-first: built for the owner's own use; public sharing is the second tier and a
+give-back after 30+ years on the internet. Copy freely within the license.

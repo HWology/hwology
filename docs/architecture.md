@@ -154,9 +154,6 @@ spec value → evidence chain.
 
 ## Open questions
 
-- **Project name.** "TOH" collides with OpenWrt's Table of Hardware (confusing once we mirror
-  their data); "HWDB" collides with systemd/udev's hwdb. Undecided; rename is cheap until
-  publication.
 - Meilisearch/Typesense: only if the public site later needs typo-tolerant search; not needed
   at current scale.
 - lane-sharing extraction workflow (PDF → LLM-assisted → human-verified flag): tooling TBD.

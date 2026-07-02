@@ -33,19 +33,24 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   (exploration, ingest checks, Parquet publishing to Garage). Datasette skipped** — DuckDB's
   local UI covers exploration; no Python sidecar wanted.
 - **2026-07-02** Repo created (git init, main branch) with docs, AGENTS.md/CLAUDE.md, memory.
+- **2026-07-02** **Name decided: HWology** ("hardware-ology"). hwology.com registered;
+  .net/.dev consciously skipped (Ivan already pays for too many domains; the .com is what
+  matters). Directory may stay `/home/ivan/TOH` for now — safe because canonical memory is
+  in-repo, not path-dependent.
+- **2026-07-02** Project ethos, in Ivan's words: personal use first, public sharing second
+  tier, a give-back from 30+ years of internet usage. Copying/forking is welcome — no brand
+  defensiveness. Keep decisions biased toward simple and personal-scale.
 
 ## Open / undecided
 
-- **Name**: "TOH" was consciously borrowed from OpenWrt's Table of Hardware but collides with
-  it (awkward once we mirror their data); "HWDB" collides with systemd/udev hwdb. Scope has
-  outgrown "table" anyway (catalog + archive + firmware ledger). Rename is cheap until
-  publication.
-  **Leaning: HWology** (collision-checked clear 2026-07-02: all registries free,
-  hwology.com/.io/.dev/.org unregistered at RDAP level, no trademarks). Spoken form:
-  "hardware-ology" (Ivan's canonical pronunciation). Casing: `HWology` in prose, `hwology`
-  for repo/CLI/domains. Domain plan: hwology.com is the one that matters; .dev is optional
-  cheap insurance (weak squatter recovery without a trademark), other TLDs skipped.
-  All candidates collision-checked against the live web 2026-07-02:
+*(none currently — naming resolved, see decisions log)*
+
+## Naming history (resolved 2026-07-02 → HWology)
+
+"TOH" was consciously borrowed from OpenWrt's Table of Hardware but collides with it;
+"HWDB" collides with systemd/udev hwdb. **HWology** collision-checked clear (all registries
+free, domains unregistered at RDAP level, no trademarks); hwology.com registered by Ivan.
+Other candidates collision-checked against the live web 2026-07-02, kept for the record:
   - **spectrail** — near-clear (unrelated Chrome extension/indie game only; npm/NuGet/PyPI/
     crates all free). Meaning: spec + audit trail.
   - **hwpedigree** — fully clear everywhere; slightly clunky to say.

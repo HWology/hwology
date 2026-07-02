@@ -1,4 +1,7 @@
-# TOH — hardware spec catalog (working name; see naming note in docs/memory/project.md)
+# HWology — hardware spec catalog
+
+Name is final (2026-07-02): **HWology**, spoken "hardware-ology"; casing `HWology` in prose,
+`hwology` in code/CLI/domains; domain hwology.com (other TLDs deliberately skipped).
 
 A public, spec-level hardware catalog with faceted filtering retail sites can't do, plus
 data retailers never carry: firmware/BIOS release history, per-slot electrical lane widths,
