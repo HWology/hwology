@@ -1,0 +1,11 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+.ionide/
+
+# local scratch / secrets
+.env
+*.local.settings.json
+scratch/
