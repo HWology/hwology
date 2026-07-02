@@ -40,7 +40,12 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   it (awkward once we mirror their data); "HWDB" collides with systemd/udev hwdb. Scope has
   outgrown "table" anyway (catalog + archive + firmware ledger). Rename is cheap until
   publication.
-  Candidates collision-checked against the live web 2026-07-02:
+  **Leaning: HWology** (collision-checked clear 2026-07-02: all registries free,
+  hwology.com/.io/.dev/.org unregistered at RDAP level, no trademarks). Spoken form:
+  "hardware-ology" (Ivan's canonical pronunciation). Casing: `HWology` in prose, `hwology`
+  for repo/CLI/domains. Domain plan: hwology.com is the one that matters; .dev is optional
+  cheap insurance (weak squatter recovery without a trademark), other TLDs skipped.
+  All candidates collision-checked against the live web 2026-07-02:
   - **spectrail** — near-clear (unrelated Chrome extension/indie game only; npm/NuGet/PyPI/
     crates all free). Meaning: spec + audit trail.
   - **hwpedigree** — fully clear everywhere; slightly clunky to say.
