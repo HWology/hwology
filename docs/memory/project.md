@@ -136,16 +136,19 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   tags on DMARC, near-zero report volume in practice. **DANE for mail: blocked** —
   messagingengine.com is unsigned and Fastmail publishes no TLSA (verified by dig); not
   actionable from our side. SSHFP for the VPS is now viable post-DNSSEC.
-- **2026-07-03** ivanthegeek.com DNS migration STAGED at Porkbun (NS cutover pending Ivan's
-  GUI review): 49 records created via API — 1:1 mirror of the Fastmail zone dump (TTL 3600)
-  plus domainology/*.domainology/authelia → prod VPS with explicit Fastmail MX pairs
-  (TTL 600). API-level diff vs expected: 49/49 exact. **Operational discovery**: Porkbun NS
-  answer REFUSED for zones whose delegation points elsewhere (`cloudflare: disabled` in
-  retrieve until the domain delegates to them) — pre-cutover verification is API-only; run
-  the live dig-diff against ns1.messagingengine.com immediately after `updateNs`. Note:
-  Fastmail's live NS serve `in1/in2-smtp` MX while the export said `us1/us2-smtp` — verified
-  earlier to be identical IP sets, either works. Cutover = one `domain/updateNs` call to the
-  four Porkbun NS; Fastmail zone stays untouched as a dormant mirror during propagation.
+- **2026-07-03** ivanthegeek.com DNS migrated Fastmail → Porkbun, COMPLETE. Staged via API
+  (49 records: 1:1 mirror of the Fastmail dump at TTL 3600 + domainology/*.domainology/
+  authelia → prod VPS with explicit Fastmail MX pairs at TTL 600; API-level diff 49/49),
+  then Ivan switched NS in the web UI; delegation verified at the .com registry, zone
+  activated (`cloudflare: enabled`), live record-by-record diff vs ns1.messagingengine.com:
+  25 match, 3 "diffs" all being the intentional us1/us2-vs-in1/in2 MX alias (identical IP
+  pools — us/eu region-prefixed names are Fastmail's newer canonical naming; `in` = legacy
+  "inbound", still served by their docs/zones; eu1-smtp exists on separate address space).
+  Public resolvers serving correctly. **Operational discovery**: Porkbun NS answer REFUSED
+  for zones whose delegation points elsewhere (`cloudflare: disabled` until delegation) —
+  pre-cutover verification is API-only; live dig-diff only works post-cutover. Fastmail's
+  zone left untouched as dormant mirror; retire from their UI after propagation ages out.
+  Later options: DNSSEC toggle, CAA, SPF/DMARC hardening (Brevo complicates — own convo).
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
