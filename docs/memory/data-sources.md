@@ -92,8 +92,10 @@ before building on them if this file has aged. Full evidence:
   first; verify at dnsviz.net. The API's `/dns/{get,create,delete}DnssecRecord` endpoints
   manage raw registry DS/key data only (the "Registry DNSSEC" manual path for external signed
   NS, e.g. deSEC) — they do NOT trigger zone signing. KB documents no disable/migration
-  procedure: before ever moving NS, delete the DS and wait out TTLs. hwology.com unsigned as
-  of 2026-07-02 (no DS, no DNSKEY, API records null).
+  procedure: before ever moving NS, delete the DS and wait out TTLs. hwology.com SIGNED
+  2026-07-02 (toggle flipped by Ivan; DS 2371/ECDSA-P256/SHA-256 live at .com, KSK+ZSK alg 13,
+  ~2-day Cloudflare signature lifetimes = continuous auto re-signing, AD flag confirmed on
+  Quad9/Cloudflare/Google; getDnssecRecords now returns the DS — monitorable via API).
 - **Archiving**: browsertrix-crawler v1.13.x (WARC/WACZ, browser profiles beat bot walls);
   single-file-cli v2 attaches to a running browser via CDP; Wayback SPN2
   (`POST web.archive.org/save`, `Authorization: LOW key:secret`, `if_not_archived_within`)

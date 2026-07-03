@@ -63,10 +63,19 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   sync to the Cloudflare backend by ~2 min — recheck if issuance ever fails).
   Wildcard behavior dig-verified on Porkbun/Cloudflare NS 2026-07-02: any explicit record at
   a name suppresses ALL wildcard synthesis there (name exists → NODATA for other types) and
-  names *under* a record-bearing node go true NXDOMAIN; but names under a mere empty
+  names *under* a record-bearing node don't resolve either (pre-DNSSEC: true NXDOMAIN;
+  post-DNSSEC: NOERROR + compact-denial NSEC — see below); but names under a mere empty
   non-terminal (e.g. `anything._tcp.hwology.com`) still get wildcard answers — Cloudflare
   matches the apex wildcard through ENTs, deviating from RFC 4592. Blocker idiom: one inert
   TXT at the name (use the record's `notes` field to say why); no native "block" type exists.
+- **2026-07-02** DNSSEC enabled on hwology.com (dashboard toggle, per KB 216). Verified
+  end-to-end same day: DS keytag 2371 alg 13 (ECDSA P-256) digest SHA-256 at .com; KSK+ZSK
+  DNSKEYs served; RRSIGs on all answers with ~2-day lifetimes (Cloudflare continuous
+  re-signing — zero key-management burden); AD flag from Quad9/Cloudflare/Google. Side
+  effect: negative answers switched from NXDOMAIN to Cloudflare's compact denial (NOERROR +
+  minimal NSEC/NXNAME, RFC 9824 style) — don't be surprised by NOERROR on nonexistent names.
+  Rule unchanged: if the zone ever moves off Porkbun NS, delete the DS first and wait out
+  TTLs. TLSA/SSHFP records are now meaningful on this zone if ever wanted.
 - **2026-07-02** Mail auth hardened to maximum (Ivan's call: fresh domain, Fastmail is the
   only sender, no ramp needed): apex SPF → `-all`; wildcard `*.hwology.com` TXT SPF `-all`
   (covers subdomain-addressing sends and spoofing); DMARC → `p=reject;
