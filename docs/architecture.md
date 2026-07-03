@@ -145,7 +145,8 @@ spec value → evidence chain.
 Repo prose (docs, research) is CC BY-SA 4.0 as well (see LICENSE); source code will be
 AGPL-3.0, declared in its own LICENSE file when code lands. Code and data stay separate
 artifacts with separate licenses — note CC BY-SA 4.0's one-way compatibility list covers
-GPLv3 only, not AGPL, so BY-SA-licensed material must never be folded into the code tree. The published dataset artifact must ship a
+GPLv3 only, not AGPL, so BY-SA-licensed material must never be folded into the code tree
+(full analysis, incl. what interactions *are* safe: [licensing.md](licensing.md)). The published dataset artifact must ship a
 NOTICE/ATTRIBUTION file naming each ingested source and its license — at minimum BuildCores
 OpenDB (ODC-By 1.0) from the first published record of milestone 2, plus OpenWrt ToH
 (CC BY-SA 4.0) and wikidevi.wi-cat.ru (CC BY-SA 3.0, adapted under 4.0) once router data lands.

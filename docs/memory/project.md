@@ -100,6 +100,10 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   LICENSE file lands with the code; pin the only/or-later variant at that point. Caveat
   recorded in architecture.md: CC BY-SA 4.0's one-way compatibility covers GPLv3 only, not
   AGPL — data and code stay separate artifacts, never fold BY-SA material into the code tree.
+- **2026-07-02** `docs/licensing.md` added (Ivan wanted the BY-SA↔AGPL analysis shared):
+  full interaction map — why no direct relicensing path exists, the three always-safe
+  interactions (runtime processing, mere aggregation, facts-only extraction), the GPLv3 §13
+  two-hop footnote, attribution obligations. CC BY-SA 4.0 like the rest of the prose.
 
 ## Open / undecided
 

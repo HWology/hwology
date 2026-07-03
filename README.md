@@ -25,7 +25,9 @@ event-sourced ingestion.
 Everything in this repository today — documentation, architecture, research reports — is
 licensed [CC BY-SA 4.0](LICENSE), and the published dataset, when it ships, will be too.
 Source code is not part of this repository yet; when it lands it will be **AGPL-3.0**,
-declared in its own LICENSE file alongside the code.
+declared in its own LICENSE file alongside the code. How the two copylefts coexist (and
+why the data never gets compiled into the code) is worked through in
+[docs/licensing.md](docs/licensing.md).
 
 Copyrighted source material (manuals, firmware, raw scraped pages) is never committed here —
 it lives in a private archive and is referenced by URL + sha256 + Wayback link only.
