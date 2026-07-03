@@ -158,6 +158,14 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   pre-drop the TTL before re-pointing a name, or accept up to ~an hour of Caddy cert
   retries for fresh resolvers (cached-resolver visitors are unaffected either way since the
   old host keeps serving).
+- **2026-07-03** forum.ivanthegeek.com set up as a Brevo sending domain (for the forum's
+  outbound mail): Brevo's 4 records (verification TXT, brevo1/brevo2 DKIM CNAMEs — chain
+  verified resolving through brevo.com's side — and `_dmarc.forum` with Brevo rua) plus
+  explicit Fastmail MX pair and A/AAAA → VPS, because any explicit record at `forum` kills
+  wildcard synthesis for ALL types there (MX assurance was Ivan's call, A/AAAA preserves
+  prior wildcard behavior). Note: `forum` now holds TXT/MX/A records, so it can never be a
+  CNAME (e.g. to Talkyard) — the forum UI host remains talkyard.ivanthegeek.com unless
+  A-record pointing is used.
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
