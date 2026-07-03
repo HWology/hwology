@@ -165,7 +165,12 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   wildcard synthesis for ALL types there (MX assurance was Ivan's call, A/AAAA preserves
   prior wildcard behavior). Note: `forum` now holds TXT/MX/A records, so it can never be a
   CNAME (e.g. to Talkyard) — the forum UI host remains talkyard.ivanthegeek.com unless
-  A-record pointing is used.
+  A-record pointing is used. SPF added at forum same day (Ivan's call: Fastmail-inclusive):
+  `v=spf1 include:spf.messagingengine.com -all` — strangers hard-fail, Fastmail replies from
+  forum@ addresses stay legit. Brevo needs no SPF (their envelope/Return-Path is
+  sender-sib.com on shared IPs; alignment via DKIM only — per Brevo docs, include:spf.brevo
+  is useless and wastes an SPF lookup). forum DMARC still Brevo-default p=none w/ Brevo rua;
+  tighten + add own rua later once sending proves out.
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
