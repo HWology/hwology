@@ -136,6 +136,16 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   tags on DMARC, near-zero report volume in practice. **DANE for mail: blocked** —
   messagingengine.com is unsigned and Fastmail publishes no TLSA (verified by dig); not
   actionable from our side. SSHFP for the VPS is now viable post-DNSSEC.
+- **2026-07-03** ivanthegeek.com DNS migration STAGED at Porkbun (NS cutover pending Ivan's
+  GUI review): 49 records created via API — 1:1 mirror of the Fastmail zone dump (TTL 3600)
+  plus domainology/*.domainology/authelia → prod VPS with explicit Fastmail MX pairs
+  (TTL 600). API-level diff vs expected: 49/49 exact. **Operational discovery**: Porkbun NS
+  answer REFUSED for zones whose delegation points elsewhere (`cloudflare: disabled` in
+  retrieve until the domain delegates to them) — pre-cutover verification is API-only; run
+  the live dig-diff against ns1.messagingengine.com immediately after `updateNs`. Note:
+  Fastmail's live NS serve `in1/in2-smtp` MX while the export said `us1/us2-smtp` — verified
+  earlier to be identical IP sets, either works. Cutover = one `domain/updateNs` call to the
+  four Porkbun NS; Fastmail zone stays untouched as a dormant mirror during propagation.
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
