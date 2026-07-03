@@ -149,6 +149,15 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   pre-cutover verification is API-only; live dig-diff only works post-cutover. Fastmail's
   zone left untouched as dormant mirror; retire from their UI after propagation ages out.
   Later options: DNSSEC toggle, CAA, SPF/DMARC hardening (Brevo complicates — own convo).
+- **2026-07-03** ivanthegeek.com apex website moved off Fastmail file hosting → prod VPS:
+  webroot `/srv/sites/ivanthegeek/wwwroot` (export byte-identical to the live page), apex
+  A/AAAA swapped to VPS at TTL 600, `www.ivanthegeek.com` redirect vhost added (its DNS
+  already rode the wildcard). files./mail. records stay on Fastmail IPs until the Fastmail
+  cleanup pass. **Cert-issuance gotcha for future re-points**: Let's Encrypt's resolvers
+  cache the OLD apex A for its full TTL (3600 here) and validation hits the stale host —
+  pre-drop the TTL before re-pointing a name, or accept up to ~an hour of Caddy cert
+  retries for fresh resolvers (cached-resolver visitors are unaffected either way since the
+  old host keeps serving).
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
