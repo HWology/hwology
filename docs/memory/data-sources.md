@@ -86,6 +86,14 @@ before building on them if this file has aged. Full evidence:
   call from F# directly or codegen from the OpenAPI spec. ACME/IaC tooling mature:
   acme.sh/lego/Caddy/certbot, Terraform `marcfrederick/porkbun` (active; cullenmcdermott
   archived), DNSControl, octoDNS, ddns-updater, official MCP server (`@porkbunllc/mcp-server`).
+  DNSSEC (KB 216, reviewed 2026-07-02): managed signing ("Porkbun DNSSEC", Cloudflare-backed)
+  is a dashboard-only toggle — Domain Management → Details → "Porkbun DNSSEC" (red→green);
+  Porkbun-NS domains only; if it won't activate, delete pre-existing registry DNSSEC records
+  first; verify at dnsviz.net. The API's `/dns/{get,create,delete}DnssecRecord` endpoints
+  manage raw registry DS/key data only (the "Registry DNSSEC" manual path for external signed
+  NS, e.g. deSEC) — they do NOT trigger zone signing. KB documents no disable/migration
+  procedure: before ever moving NS, delete the DS and wait out TTLs. hwology.com unsigned as
+  of 2026-07-02 (no DS, no DNSKEY, API records null).
 - **Archiving**: browsertrix-crawler v1.13.x (WARC/WACZ, browser profiles beat bot walls);
   single-file-cli v2 attaches to a running browser via CDP; Wayback SPN2
   (`POST web.archive.org/save`, `Authorization: LOW key:secret`, `if_not_archived_within`)
