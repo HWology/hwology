@@ -84,6 +84,15 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
 
 - License for the future source code (CC BY-SA is unsuitable for software — Creative Commons
   itself recommends against it); decide by milestone 1, declare in its own LICENSE file.
+- DMARC report processor for dmarc@hwology.com (multi-domain: ivanthegeek.com etc. will
+  point rua here too; `*._report._dmarc` authorization already published). Shortlist
+  (multi-agent verified 2026-07-02): **cry-inc/dmarc-report-viewer** (recommended — Rust,
+  single ~10 MB container, built-in IMAP+UI, per-domain filters, monthly releases; stateless:
+  the mailbox IS the datastore, so keep report mail) vs **dmarcguardhq/dmarcguard** (Go+SQLite
+  persistence, single 14 MB container, very active but only ~8 months old) vs **liuch/dmarc-srg**
+  (most mature viewer; PHP+MariaDB, 2 containers on third-party images, and each report domain
+  must be added to its allow-list). parsedmarc itself is healthy (10.2.0, 2026-06; v10 added a
+  PostgreSQL backend) but its lightest UI path is still 3 containers.
 
 ## Naming history (resolved 2026-07-02 → HWology)
 
