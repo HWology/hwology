@@ -38,7 +38,7 @@ operational notes anywhere in the repo.
   archive ref. Trust rank: `measured > correction > manual-PDF > vendor-page > aggregator`.
   Never delete vendor-pulled data; flag it `pulled`.
 - **Licensing tiers**: published data is CC BY-SA 4.0 (version pinned; repo prose carries the
-  same license — see LICENSE; future code gets its own license when it lands). Raw scraped
+  same license — see LICENSE; code is AGPL-3.0, own LICENSE file when it lands). Raw scraped
   HTML, manual PDFs, and firmware binaries are private (Garage S3, sha256-keyed) and referenced
   publicly by URL + hash + Wayback link only. Do not commit copyrighted material to this repo.
 - **Scraping**: be polite (low rate, identify honestly where sensible). Several vendors

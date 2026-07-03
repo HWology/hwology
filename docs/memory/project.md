@@ -42,7 +42,8 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   defensiveness. Keep decisions biased toward simple and personal-scale.
 - **2026-07-02** Repo published publicly: **github.com/HWology/hwology** (org HWology;
   org description + hwology.com URL set). LICENSE added: CC BY-SA 4.0 covering the repo's
-  prose and the future published data; future code will carry its own license (open question).
+  prose and the future published data; future code will carry its own license (decided later
+  same day: AGPL-3.0, see below).
   **This repo — including these memory files — is now public**: keep secrets, personal data,
   and sensitive operational notes out of it.
 - **2026-07-02** Porkbun API access verified live from the dev machine (key scoped per
@@ -80,10 +81,13 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   remaining relative dates to absolute. Dataset NOTICE/ATTRIBUTION obligation pre-staged in
   architecture.md (triggers at milestone 2's first published record).
 
+- **2026-07-02** **Code license decided: AGPL-3.0** for the F# source (Ivan's call). Own
+  LICENSE file lands with the code; pin the only/or-later variant at that point. Caveat
+  recorded in architecture.md: CC BY-SA 4.0's one-way compatibility covers GPLv3 only, not
+  AGPL — data and code stay separate artifacts, never fold BY-SA material into the code tree.
+
 ## Open / undecided
 
-- License for the future source code (CC BY-SA is unsuitable for software — Creative Commons
-  itself recommends against it); decide by milestone 1, declare in its own LICENSE file.
 - DMARC report processor for dmarc@hwology.com (multi-domain: ivanthegeek.com etc. will
   point rua here too; `*._report._dmarc` authorization already published). Shortlist
   (multi-agent verified 2026-07-02): **cry-inc/dmarc-report-viewer** (recommended — Rust,
