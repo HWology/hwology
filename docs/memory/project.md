@@ -60,7 +60,17 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   (Fastmail's webmail-redirect A record deliberately skipped). TTLs 600 during setup; raise
   to 3600 once stable. All records verified resolving on Porkbun NS same day (CAA lagged
   sync to the Cloudflare backend by ~2 min — recheck if issuance ever fails).
-- **2026-07-02** mail.hwology.com pointed at Fastmail after all (reversing the earlier skip):
+- **2026-07-02** Mail auth hardened to maximum (Ivan's call: fresh domain, Fastmail is the
+  only sender, no ramp needed): apex SPF → `-all`; wildcard `*.hwology.com` TXT SPF `-all`
+  (covers subdomain-addressing sends and spoofing); DMARC → `p=reject;
+  rua=mailto:dmarc@hwology.com` (mailbox live). Alignment stays RELAXED (defaults — do NOT
+  add `adkim=s`): Fastmail signs d=hwology.com, and strict alignment would break sending
+  from Ivan's per-service `user@sub.hwology.com` addresses; receiving via wildcard MX is
+  unaffected by all of this. Also added `*._report._dmarc` TXT `v=DMARC1` so hwology.com can
+  receive DMARC reports for OTHER domains (ivanthegeek.com etc. planned) — required because
+  the wildcard SPF TXT would otherwise be synthesized for `<domain>._report._dmarc` lookups
+  and receivers would refuse cross-domain rua. If mail must ever originate outside Fastmail,
+  revisit SPF (route via Fastmail SMTP preferred).
   A → 103.168.172.65 (their webmail-redirect host) + MX pair. The explicit A also correctly
   suppresses wildcard AAAA synthesis at that name (empty AAAA, matching Fastmail's default).
   Fastmail's hosted-domain certs are Let's Encrypt (their help: "Secure website support:
