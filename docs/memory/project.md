@@ -97,6 +97,22 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   (most mature viewer; PHP+MariaDB, 2 containers on third-party images, and each report domain
   must be added to its allow-list). parsedmarc itself is healthy (10.2.0, 2026-06; v10 added a
   PostgreSQL backend) but its lightest UI path is still 3 containers.
+  Trial-plan facts (source-verified 2026-07-02): the two shortlisted tools must NOT share one
+  IMAP folder — cry-inc's fetch is always non-PEEK (marks everything `\Seen`) while dmarcguard
+  discovers work solely via SEARCH UNSEEN, so it gets silently starved. Setup: two Fastmail
+  folders + Sieve `fileinto :copy` rule, one app password per tool; keep dmarcguard's
+  `IMAP_PROCESSED_MAILBOX` disabled (its move path expunges ALL `\Deleted` in the folder and
+  uses sequence numbers, not UIDs). dmarcguard's dashboard/API has NO auth and CORS `*` —
+  reverse-proxy auth mandatory; cry-inc has built-in Basic Auth. dmarcguard.io SaaS ≠ the OSS
+  repo (Apache-2.0, no telemetry, same author): of its marketed "9 protocols" only DMARC (+
+  embedded SPF/DKIM results) is in the OSS; the rest is closed or ROADMAP-planned.
+- Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
+  (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
+  w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
+  alternative: Authelia ≥4.39 (`webauthn.enable_passkey_login`). Avoid caddy-security
+  (WebAuthn is password+U2F 2FA only; 10 unpatched 2024 GHSAs). Pocket ID's WebAuthn rpID
+  binds to its hostname — choose e.g. id.&lt;domain&gt; deliberately, renaming re-registers
+  passkeys.
 
 ## Naming history (resolved 2026-07-02 → HWology)
 
