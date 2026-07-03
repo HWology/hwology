@@ -61,6 +61,12 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   (Fastmail's webmail-redirect A record deliberately skipped). TTLs 600 during setup; raise
   to 3600 once stable. All records verified resolving on Porkbun NS same day (CAA lagged
   sync to the Cloudflare backend by ~2 min — recheck if issuance ever fails).
+  Wildcard behavior dig-verified on Porkbun/Cloudflare NS 2026-07-02: any explicit record at
+  a name suppresses ALL wildcard synthesis there (name exists → NODATA for other types) and
+  names *under* a record-bearing node go true NXDOMAIN; but names under a mere empty
+  non-terminal (e.g. `anything._tcp.hwology.com`) still get wildcard answers — Cloudflare
+  matches the apex wildcard through ENTs, deviating from RFC 4592. Blocker idiom: one inert
+  TXT at the name (use the record's `notes` field to say why); no native "block" type exists.
 - **2026-07-02** Mail auth hardened to maximum (Ivan's call: fresh domain, Fastmail is the
   only sender, no ramp needed): apex SPF → `-all`; wildcard `*.hwology.com` TXT SPF `-all`
   (covers subdomain-addressing sends and spoofing); DMARC → `p=reject;
