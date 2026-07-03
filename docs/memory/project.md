@@ -125,6 +125,17 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   reverse-proxy auth mandatory; cry-inc has built-in Basic Auth. dmarcguard.io SaaS ≠ the OSS
   repo (Apache-2.0, no telemetry, same author): of its marketed "9 protocols" only DMARC (+
   embedded SPF/DKIM results) is in the OSS; the rest is closed or ROADMAP-planned.
+- Email-security coverage roadmap (assessed 2026-07-02, nothing deployed yet): of the
+  dmarcguard.io "9 protocols," hwology.com has DMARC/SPF/DKIM maxed (+ CAA and DNSSEC beyond
+  their list; ARC is Fastmail's job, nothing to publish). Addable free: **TLS-RPT** (one
+  `_smtp._tls` TXT; cry-inc viewer parses these reports) and **MTA-STS** (`_mta-sts` TXT +
+  static policy at https://mta-sts.hwology.com/.well-known/mta-sts.txt via Caddy; verified
+  Fastmail MX certs are `*.messagingengine.com` = policy-compatible; start mode=testing).
+  **BIMI** self-asserted tier free (SVG Tiny PS on VPS; shows at Yahoo/Fastmail; Gmail needs
+  paid CMC ~$650+/yr, checkmark needs VMC + registered trademark). **ARF** = `ruf=`/`fo=1`
+  tags on DMARC, near-zero report volume in practice. **DANE for mail: blocked** —
+  messagingengine.com is unsigned and Fastmail publishes no TLSA (verified by dig); not
+  actionable from our side. SSHFP for the VPS is now viable post-DNSSEC.
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
