@@ -171,6 +171,14 @@ Firmware/BIOS detail — which retailers never carry — matters as much as spec
   sender-sib.com on shared IPs; alignment via DKIM only — per Brevo docs, include:spf.brevo
   is useless and wastes an SPF lookup). forum DMARC still Brevo-default p=none w/ Brevo rua;
   tighten + add own rua later once sending proves out.
+- **2026-07-26** home.ivanthegeek.com created as homelab DDNS target: A -> 192.0.2.1
+  placeholder (TTL 600, record id 567734610, notes field documents purpose), to be updated
+  by OPNsense os-ddclient (native backend, Porkbun service) with a NEW dashboard-created API
+  key scoped to ivanthegeek.com only, no IP allowlist (home IP is dynamic — that's the
+  point). Deliberately NO MX (Ivan: "no email needed") — name exists so wildcard MX is
+  suppressed, @home addresses are dead. IPv4 only for now; AAAA must be created before any
+  IPv6 DDNS. Gotcha for the updater: pre-2025 ddclient/plugin builds still call the old
+  porkbun.com API host and fail — verify the record actually changes after a forced update.
 - Auth in front of self-hosted web UIs (candidate, not yet deployed): **Pocket ID**
   (passkey-only OIDC, 1 container) + **Tinyauth** (Caddy forward_auth middleware, OIDC client
   w/ auto-redirect) — mutually documented pairing, both very active 2026-07. Single-container
