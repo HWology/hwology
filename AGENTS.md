@@ -24,6 +24,8 @@ operational notes anywhere in the repo.
 3. Read `development/architecture.md` before proposing or making design changes.
 4. `development/research/<date>/` holds web-verified research reports backing the architecture.
    Cite them; don't re-research what's already verified.
+5. `development/WISHLIST.md` is the requirements draft that precedes the event-modeling pass. Requirements and
+   owner brain-dumps go there, not into architecture.md; promote only what the owner decides.
 
 ## Ground rules
 

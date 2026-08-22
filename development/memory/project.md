@@ -223,3 +223,5 @@ Other candidates collision-checked against the live web 2026-07-02, kept for the
 2. Read [../architecture.md](../architecture.md) before proposing design changes.
 3. Research evidence lives in [../research/](../research/) (dated dirs) — cite, don't re-research
    what's already verified; do re-verify perishable access details if months old.
+4. Requirements not yet modeled live in [../WISHLIST.md](../WISHLIST.md) — the draft feeding
+   the event-modeling pass. Put owner brain-dumps there, not in architecture.md.

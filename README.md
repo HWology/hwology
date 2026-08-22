@@ -19,6 +19,7 @@ event-sourced ingestion.
   research reports the design is grounded in (data sources, schema/storage, firmware data,
   archiving, licensing).
 - [development/memory/](development/memory/project.md) — living decision log and data-source access notes.
+- [development/WISHLIST.md](development/WISHLIST.md) — requirements draft feeding the event-modeling pass; not commitments.
 
 ## Licensing
 
