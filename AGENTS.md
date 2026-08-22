@@ -16,19 +16,19 @@ operational notes anywhere in the repo.
 
 ## Session bootstrap (do this first)
 
-1. Read `docs/memory/project.md` — living project memory: decisions log, open questions,
+1. Read `development/memory/project.md` — living project memory: decisions log, open questions,
    hard-won requirements. **Update it whenever a decision is made or a fact changes**; date
    volatile entries. This is the shared memory for all agents (Claude, Codex, humans).
-2. Read `docs/memory/data-sources.md` — verified data sources and access status (dated;
+2. Read `development/memory/data-sources.md` — verified data sources and access status (dated;
    perishable — re-verify old entries before building on them).
-3. Read `docs/architecture.md` before proposing or making design changes.
-4. `docs/research/<date>/` holds web-verified research reports backing the architecture.
+3. Read `development/architecture.md` before proposing or making design changes.
+4. `development/research/<date>/` holds web-verified research reports backing the architecture.
    Cite them; don't re-research what's already verified.
 
 ## Ground rules
 
 - **Stack**: F# on .NET 11 previews (owner deliberately runs newest). GUI will be the owner's
-  own fork of Fun.Blazor. No C#-first frameworks; check `docs/architecture.md` stack pins
+  own fork of Fun.Blazor. No C#-first frameworks; check `development/architecture.md` stack pins
   before adding packages.
 - **Architecture**: event-sourced ingestion (append-only observations with provenance);
   SQLite and the published dataset are rebuildable projections, never sources of truth.

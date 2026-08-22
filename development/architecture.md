@@ -1,7 +1,7 @@
 # Architecture
 
 *Status: design phase, no code yet. Last updated 2026-07-02. Evidence for every claim here is
-in [docs/research/2026-07-02/](research/2026-07-02/README.md).*
+in [development/research/2026-07-02/](research/2026-07-02/README.md).*
 
 ## What this is
 
@@ -116,7 +116,7 @@ spec value → evidence chain.
   editor/CI schema validation.
 - JSON Schema from F# types: FSharp.Data.JsonSchema 3.x.
 
-## Data sources plan (details + access status: docs/memory/data-sources.md)
+## Data sources plan (details + access status: development/memory/data-sources.md)
 
 - **Motherboards**: seed BuildCores OpenDB (ODC-By) → enrich Open Icecat (ASUS+Gigabyte,
   GTIN identity) → vendor scrapes (ASUS open incl. BIOS JSON API; MSI/Gigabyte/ASRock/

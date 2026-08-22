@@ -13,12 +13,12 @@ event-sourced ingestion.
 
 ## What's here
 
-- [docs/architecture.md](docs/architecture.md) — the design: event-sourced ingestion,
+- [development/architecture.md](development/architecture.md) — the design: event-sourced ingestion,
   provenance model, domain sketch, stack pins, milestones.
-- [docs/research/2026-07-02/](docs/research/2026-07-02/README.md) — twelve web-verified
+- [development/research/2026-07-02/](development/research/2026-07-02/README.md) — twelve web-verified
   research reports the design is grounded in (data sources, schema/storage, firmware data,
   archiving, licensing).
-- [docs/memory/](docs/memory/project.md) — living decision log and data-source access notes.
+- [development/memory/](development/memory/project.md) — living decision log and data-source access notes.
 
 ## Licensing
 
@@ -27,7 +27,7 @@ licensed [CC BY-SA 4.0](LICENSE), and the published dataset, when it ships, will
 Source code is not part of this repository yet; when it lands it will be **AGPL-3.0**,
 declared in its own LICENSE file alongside the code. How the two copylefts coexist (and
 why the data never gets compiled into the code) is worked through in
-[docs/licensing.md](docs/licensing.md).
+[development/licensing.md](development/licensing.md).
 
 Copyrighted source material (manuals, firmware, raw scraped pages) is never committed here —
 it lives in a private archive and is referenced by URL + sha256 + Wayback link only.
